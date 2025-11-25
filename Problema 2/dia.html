@@ -27,8 +27,8 @@
 <script>
 fetch("navbar.html")
     .then(response => response.text())
-    .then(data => {
-        document.getElementById("navbar-container").innerHTML = data;
+    .then(datos => {
+        document.getElementById("navbar-container").innerHTML = datos;
     });
 
 
@@ -43,55 +43,55 @@ function convertirDiaAFecha() {
         return;
     }
 
-    let mes, d;
+    let meses, a;
 
     if (numeroDia <= 31) {
-        d = numeroDia;
-        mes = "enero";
+        a = numeroDia;
+        meses = "enero";
 
     } else if (numeroDia <= 59) {
-        d = numeroDia - 31;
-        mes = "febrero";
+        a = numeroDia - 31;
+        meses = "febrero";
 
     } else if (numeroDia <= 90) {
-        d = numeroDia - 59;
-        mes = "marzo";
+        a = numeroDia - 59;
+        meses = "marzo";
 
     } else if (numeroDia <= 120) {
-        d = numeroDia - 90;
-        mes = "abril";
+        a = numeroDia - 90;
+        meses = "abril";
 
     } else if (numeroDia <= 151) {
-        d = numeroDia - 120;
-        mes = "mayo";
+        a = numeroDia - 120;
+        meses = "mayo";
 
     } else if (numeroDia <= 181) {
-        d = numeroDia - 151;
-        mes = "junio";
+        a = numeroDia - 151;
+        meses = "junio";
 
     } else if (numeroDia <= 212) {
-        d = numeroDia - 181;
-        mes = "julio";
+        a = numeroDia - 181;
+        meses = "julio";
 
     } else if (numeroDia <= 243) {
-        d = numeroDia - 212;
-        mes = "agosto";
+        a = numeroDia - 212;
+        meses = "agosto";
 
     } else if (numeroDia <= 273) {
-        d = numeroDia - 243;
-        mes = "septiembre";
+        a = numeroDia - 243;
+        meses = "septiembre";
 
     } else if (numeroDia <= 304) {
-        d = numeroDia - 273;
-        mes = "octubre";
+        a = numeroDia - 273;
+        meses = "octubre";
 
     } else if (numeroDia <= 334) {
-        d = numeroDia - 304;
-        mes = "noviembre";
+        a = numeroDia - 304;
+        meses = "noviembre";
 
     } else {
-        d = numeroDia - 334;
-        mes = "diciembre";
+        a = numeroDia - 334;
+        meses = "diciembre";
     }
 
     resultado.className = "alert alert-success";
