@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Problema 2 - Día y Mes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="navbar-container"></div>
+
+<div class="container mt-4">
+    <h1>Determinar el día y mes</h1>
+
+    <form class="mt-4" onsubmit="return false">
+        <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <input type="number" id="num" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" onclick="convertirDiaAFecha()">Determinar</button>
+
+        <div class="mt-3 alert" id="resultado"></div>
+    </form>
+</div>
+
+<script>
+fetch("navbar.html")
+    .then(response => response.text())
+    .then(datos => {
+        document.getElementById("navbar-container").innerHTML = datos;
+    });
+
+
+
+function convertirDiaAFecha() {
+    let numeroDia = parseInt(document.getElementById("num").value);
+    let resultado = document.getElementById("resultado");
+
+    if (isNaN(numeroDia) || numeroDia < 1 || numeroDia > 365) {
+        resultado.className = "alert alert-danger";
+        resultado.textContent = "Error: el número debe estar entre 1 y 365.";
+        return;
+    }
+
+    let meses, a;
+
+    if (numeroDia <= 31) {
+        a = numeroDia;
+        meses = "enero";
+
+    } else if (numeroDia <= 59) {
+        a = numeroDia - 31;
+        meses = "febrero";
+
+    } else if (numeroDia <= 90) {
+        a = numeroDia - 59;
+        meses = "marzo";
+
+    } else if (numeroDia <= 120) {
+        a = numeroDia - 90;
+        meses = "abril";
+
+    } else if (numeroDia <= 151) {
+        a = numeroDia - 120;
+        meses = "mayo";
+
+    } else if (numeroDia <= 181) {
+        a = numeroDia - 151;
+        meses = "junio";
+
+    } else if (numeroDia <= 212) {
+        a = numeroDia - 181;
+        meses = "julio";
+
+    } else if (numeroDia <= 243) {
+        a = numeroDia - 212;
+        meses = "agosto";
+
+    } else if (numeroDia <= 273) {
+        a = numeroDia - 243;
+        meses = "septiembre";
+
+    } else if (numeroDia <= 304) {
+        a = numeroDia - 273;
+        meses = "octubre";
+
+    } else if (numeroDia <= 334) {
+        a = numeroDia - 304;
+        meses = "noviembre";
+
+    } else {
+        a = numeroDia - 334;
+        meses = "diciembre";
+    }
+
+    resultado.className = "alert alert-success";
+    resultado.textContent = `Corresponde al ${d} de ${mes}`;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
